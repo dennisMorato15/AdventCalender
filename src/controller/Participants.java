@@ -8,9 +8,9 @@ public class Participants {
     static ArrayList<String> listParticipants;
     private String nameFile = "AdventCalendarParticipants.txt";
     Scanner namePlayer = new Scanner(System.in);
-    private final String test = namePlayer.nextLine().trim();
     public void addParticipants(){
         System.out.println("Enter the name to add to the game: ");
+        String test = namePlayer.nextLine().trim();
         String participant = test.substring(0, 1).toUpperCase().concat(test.substring(1).toLowerCase());
 
         listParticipants = ParticipantList.loadParticipants(nameFile);
@@ -24,6 +24,7 @@ public class Participants {
     }
     public void removeParticipants(){
         System.out.println("Enter the name to remove from the game: ");
+        String test = namePlayer.nextLine().trim();
         String participant = test.substring(0, 1).toUpperCase().concat(test.substring(1).toLowerCase());
 
         listParticipants = ParticipantList.loadParticipants(nameFile);

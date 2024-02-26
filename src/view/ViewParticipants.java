@@ -9,7 +9,6 @@ public class ViewParticipants {
     Participants calendar = new Participants();
 
     public void playAdventCalendar(){
-        Scanner scannerPlay = new Scanner(System.in);
         System.out.println("***** ☻☺ Welcome the to advent calender ☺☻ *********");
         System.out.println("What do you want to do? " +
                 "\n 1: Add " +
@@ -18,9 +17,9 @@ public class ViewParticipants {
                 "\n 4: Play " +
                 "\n 5: Exit "
         );
-
+        Scanner scannerPlay = new Scanner(System.in);
         String test = scannerPlay.nextLine().trim();
-        String play = test.substring(0, 1).toUpperCase().concat(test.substring(1).toLowerCase());
+        String play = test.substring(0, 1).toUpperCase() + test.substring(1).toLowerCase();
 
         switch (play){
             case "Add" ->
