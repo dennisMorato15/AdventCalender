@@ -19,7 +19,6 @@ public class Participants {
             System.out.println("The person with the name " + participant + " is already on the list :()");
 
         }else{
-
         listParticipants.add(participant);
         System.out.println("Participant " + participant + " successfully entered ☺");
 

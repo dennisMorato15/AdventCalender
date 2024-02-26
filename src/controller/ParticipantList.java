@@ -8,7 +8,6 @@ public class ParticipantList {
         try(PrintWriter file = new PrintWriter(new FileWriter(fileName))){
             for (String list : savePartition){
                 file.println(list);
-                System.out.println("array :".concat(list));
             }
         }
         catch (IOException ioException){
