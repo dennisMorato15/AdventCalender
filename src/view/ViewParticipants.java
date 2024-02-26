@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class ViewParticipants {
     Participants calendar = new Participants();
-    ArrayList<String> list;
 
     public void playAdventCalendar(){
         Scanner scannerPlay = new Scanner(System.in);
@@ -21,7 +20,7 @@ public class ViewParticipants {
         );
 
         String test = scannerPlay.nextLine().trim();
-        String play = test.substring(0, 1).toUpperCase() + test.substring(1).toLowerCase();
+        String play = test.substring(0, 1).toUpperCase().concat(test.substring(1).toLowerCase());
 
         switch (play){
             case "Add" ->
@@ -33,6 +32,7 @@ public class ViewParticipants {
             case "Play" ->
                 calendar.toPlay();
             case "Exit" -> System.out.println("exit");
+            default -> System.out.println("The data entered is not valid :( ");
         }
     }
 }

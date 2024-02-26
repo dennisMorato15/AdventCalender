@@ -1,11 +1,12 @@
 package controller;
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class ParticipantList {
 
     protected static void saveList(ArrayList<String> savePartition, String fileName) {
-        try(PrintWriter file = new PrintWriter(new FileWriter(fileName))){
+        try(PrintWriter  file = new PrintWriter(new FileWriter(fileName))){
             for (String list : savePartition){
                 file.println(list);
             }
