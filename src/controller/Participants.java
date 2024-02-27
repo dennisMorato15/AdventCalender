@@ -1,13 +1,16 @@
 package controller;
 
+import interfaces.IParticipant;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Participants {
+public class Participants implements IParticipant {
     static ArrayList<String> listParticipants;
     private String nameFile = "AdventCalendarParticipants.txt";
     Scanner namePlayer = new Scanner(System.in);
+    @Override
     public void addParticipants(){
         System.out.println("Enter the name to add to the game: ");
         String test = namePlayer.nextLine().trim();
@@ -22,6 +25,8 @@ public class Participants {
         }
         ParticipantList.saveList(listParticipants , nameFile);
     }
+
+    @Override
     public void removeParticipants(){
         System.out.println("Enter the name to remove from the game: ");
         String test = namePlayer.nextLine().trim();
@@ -32,6 +37,8 @@ public class Participants {
         System.out.println();
         ParticipantList.saveList(listParticipants , nameFile);
     }
+
+    @Override
     public void listParticipants(){
         listParticipants = ParticipantList.loadParticipants(nameFile);
         for (String allParticipants : listParticipants){
@@ -39,6 +46,8 @@ public class Participants {
         }
         ParticipantList.saveList(listParticipants , nameFile);
     }
+
+    @Override
     public void toPlay(){
         listParticipants = ParticipantList.loadParticipants(nameFile);
         Random random = new Random();
@@ -48,5 +57,11 @@ public class Participants {
         System.out.println(" ☺☺☺ I want your luck " + winningParticipant + " you have won, congratulation ☺☺☺ ");
         listParticipants.remove(winningParticipant);
         ParticipantList.saveList(listParticipants , nameFile);
+    }
+
+    @Override
+    public void exitProgram(){
+        System.out.println("Until next time, bye");
+        System.exit(0);
     }
 }
