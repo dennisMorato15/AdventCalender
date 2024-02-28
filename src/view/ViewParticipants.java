@@ -22,35 +22,20 @@ public class ViewParticipants {
             switch (play) {
                 case "Add" -> {
                     calendar.addParticipants();
-                    responseContinueProgram();
                 }
                 case "Delete" ->{
                     calendar.removeParticipants();
-                    responseContinueProgram();
                 }
                 case "List" -> {
                     calendar.listParticipants();
-                    responseContinueProgram();
                 }
                 case "Play" -> {
                     calendar.toPlay();
-                    responseContinueProgram();
                 }
                 case "Exit" -> calendar.exitProgram();
                 default -> {
                     System.out.println("The data entered is not valid :( ");
-                    responseContinueProgram();
                 }
             }
-    }
-    public void responseContinueProgram (){
-        System.out.println("Do you want to continue on the program? " + "Yes or No");
-        String continueProgram = scannerPlay.nextLine().trim();
-        String responseProgram =  continueProgram.substring(0, 1).toUpperCase() + continueProgram.substring(1).toLowerCase();
-        if(responseProgram.equals("Yes")){
-            playAdventCalendar();
-        }else{
-            calendar.exitProgram();
-        }
     }
 }
