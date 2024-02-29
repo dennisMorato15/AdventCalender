@@ -4,5 +4,6 @@
 - Agregar participante
 - Eliminar participantes
 - Sortear participantes
+- Listar participantes
 # Diagrama de clases
-![AdventCalender(1) drawio](https://github.com/dennisMorato15/AdventCalender/assets/126518475/f669bf45-c097-4297-8b99-d79d22f4f6b9)
+![AdventCalender(2) drawio](https://github.com/dennisMorato15/AdventCalender/assets/126518475/df629fa6-5fc4-454d-b2f4-abeed7a25c79)
