@@ -1,12 +1,12 @@
 package view;
 
 import controller.Participant;
-import exceptions.Validation;
+import validation.Validation;
 
 import java.util.Scanner;
 
 public class ViewParticipants {
-    Participant calendar = new Participant();
+    Participant participant = new Participant();
     Validation validation = new Validation();
     Scanner scannerPlay = new Scanner(System.in);
     public void playAdventCalendar() {
@@ -24,18 +24,18 @@ public class ViewParticipants {
 
                 switch (play.toString()) {
                     case "Add" -> {
-                        calendar.add();
+                        participant.addParticipants();
                     }
                     case "Delete" -> {
-                        calendar.remove();
+                        participant.removeParticipants();
                     }
                     case "List" -> {
-                        calendar.list();
+                        participant.listParticipants();
                     }
                     case "Play" -> {
-                        calendar.play();
+                        participant.toPlay();
                     }
-                    case "Exit" -> calendar.exit();
+                    case "Exit" -> participant.exitProgram();
                     default -> {
                         System.out.println("The data entered is not valid :( ");
                     }

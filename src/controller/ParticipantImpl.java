@@ -1,6 +1,6 @@
 package controller;
 
-import exceptions.Validation;
+import validation.Validation;
 import interfaces.IParticipant;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class ParticipantImpl implements IParticipant {
     private String nameFile = "AdventCalendarParticipants.txt";
     Scanner namePlayer = new Scanner(System.in);
     @Override
-    public void addParticipants(){
+    public void add(){
         System.out.println("Enter the name to add to the game: ");
         System.err.println("Remember that to exit the program you must enter the word 'Back'");
 
@@ -40,7 +40,7 @@ public class ParticipantImpl implements IParticipant {
         }while (validation.responseToContinue(participant.toString()));
     }
     @Override
-    public void removeParticipants(){
+    public void remove(){
         System.out.println("Enter the name to remove from the game: ");
         System.err.println("Remember that to exit the program you must enter the word 'Back'");
 
@@ -69,7 +69,7 @@ public class ParticipantImpl implements IParticipant {
     }
 
     @Override
-    public void listParticipants(){
+    public void list(){
         listParticipants = ParticipantList.loadParticipants(nameFile);
         for (String allParticipants : listParticipants){
             System.out.println(allParticipants);
@@ -90,7 +90,7 @@ public class ParticipantImpl implements IParticipant {
     }
 
     @Override
-    public void exitProgram(){
+    public void exit(){
         System.out.println("Until next time, bye");
         System.exit(0);
     }

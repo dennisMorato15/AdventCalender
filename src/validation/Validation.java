@@ -1,6 +1,4 @@
-package exceptions;
-
-import view.ViewParticipants;
+package validation;
 
 import java.util.ArrayList;
 

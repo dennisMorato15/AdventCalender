@@ -3,21 +3,21 @@ package controller;
 public class Participant extends ParticipantList{
 
     ParticipantImpl participant = new ParticipantImpl();
-    public void add(){
-        participant.addParticipants();
+    public void addParticipants(){
+        participant.add();
     }
-    public void remove(){
-        participant.removeParticipants();
-    }
-
-    public void list(){
-        participant.listParticipants();
-    }
-    public void play(){
-        participant.toPlay();
+    public void removeParticipants(){
+        participant.remove();
     }
 
-    public void exit(){
-        participant.exitProgram();
+    public void listParticipants(){
+        participant.list();
+    }
+    public void toPlay(){
+        participant.play();
+    }
+
+    public void exitProgram(){
+        participant.exit();
     }
 }

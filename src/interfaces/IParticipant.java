@@ -1,9 +1,9 @@
 package interfaces;
 
 public interface IParticipant {
-     void addParticipants();
-     void removeParticipants();
-     void listParticipants();
-     void toPlay();
-     void exitProgram();
+     void add();
+     void remove();
+     void list();
+     void play();
+     void exit();
 }
