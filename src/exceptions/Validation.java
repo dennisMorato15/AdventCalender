@@ -4,7 +4,7 @@ import view.ViewParticipants;
 
 public class Validation {
     public boolean responseToContinue(String response){
-            return !response.equals("Exit");
+            return !response.equals("Back");
     }
     public String transformLetter(String word) {
         word = word.substring(0, 1).toUpperCase().concat(word.substring(1).toLowerCase());

@@ -11,14 +11,16 @@ public class ViewParticipants {
     Scanner scannerPlay = new Scanner(System.in);
     public void playAdventCalendar() {
         StringBuilder play;
-        System.out.println("What do you want to do? " +
+        do {
+
+            System.out.println("What do you want to do? " +
                     "\n 1: Add" +
                     "\n 2: Delete " +
                     "\n 3: List " +
                     "\n 4: Play " +
                     "\n 5: Exit"
             );
-        play = new StringBuilder(validation.transformLetter(scannerPlay.nextLine().trim()));
+            play = new StringBuilder(validation.transformLetter(scannerPlay.nextLine().trim()));
 
             switch (play.toString()) {
                 case "Add" -> {
@@ -33,10 +35,11 @@ public class ViewParticipants {
                 case "Play" -> {
                     calendar.play();
                 }
-                case "Exit" ->  calendar.exit();
+                case "Exit" -> calendar.exit();
                 default -> {
                     System.out.println("The data entered is not valid :( ");
                 }
             }
+        }while (validation.responseToContinue(play.toString()));
     }
 }

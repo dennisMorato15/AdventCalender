@@ -16,7 +16,7 @@ public class ParticipantImpl implements IParticipant {
     @Override
     public void addParticipants(){
         System.out.println("Enter the name to add to the game: ");
-        System.err.println("Remember that to exit the program you must enter the word 'Exit'");
+        System.err.println("Remember that to exit the program you must enter the word 'Back'");
 
         do {
             participant = new StringBuilder(validation.transformLetter(namePlayer.nextLine().trim()));
@@ -26,7 +26,7 @@ public class ParticipantImpl implements IParticipant {
                 System.out.println("Entered a valid name -> ");
                 continue;
             }
-            if(!participant.toString().equals("Exit")){
+            if(!participant.toString().equals("Back")){
                 if (listParticipants.contains(participant.toString())) {
                     System.out.println("The person with the name " + participant + " is already on the list :()");
                     System.out.println("Try another name -> ");
@@ -36,7 +36,7 @@ public class ParticipantImpl implements IParticipant {
                     System.out.println("Next Participant -> ");
                 }
             }else {
-                exitProgram();
+                System.out.println("lola");
             }
 
             ParticipantList.saveList(listParticipants, nameFile);
@@ -46,7 +46,7 @@ public class ParticipantImpl implements IParticipant {
     @Override
     public void removeParticipants(){
         System.out.println("Enter the name to remove from the game: ");
-        System.err.println("Remember that to exit the program you must enter the word 'Exit'");
+        System.err.println("Remember that to exit the program you must enter the word 'Back'");
 
        do {
            if (validation.validateName(participant.toString())) {
@@ -57,7 +57,7 @@ public class ParticipantImpl implements IParticipant {
            participant = new StringBuilder(validation.transformLetter(namePlayer.nextLine().trim()));
            listParticipants = ParticipantList.loadParticipants(nameFile);
 
-           if (!participant.toString().equals("Exit")){
+           if (!participant.toString().equals("Back")){
                if (!listParticipants.contains(participant.toString())){
                    System.out.println("The person with the name " + participant + " does not exist in the list");
                    System.out.println("Try again -> ");
@@ -66,7 +66,7 @@ public class ParticipantImpl implements IParticipant {
                    System.out.println("oh! you have removed the participant " + participant + "from the game :(" );
                }
            }else {
-               exitProgram();
+               System.out.println("hola");
            }
 
            ParticipantList.saveList(listParticipants , nameFile);
