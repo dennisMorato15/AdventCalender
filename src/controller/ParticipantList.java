@@ -26,7 +26,7 @@ public class ParticipantList {
                 listParticipants.add(loadLine);
             }
         } catch (IOException ioException) {
-            System.err.println("fOh! An error has occurred " + ioException);
+            System.err.println("Oh! An error has occurred " + ioException);
         }
     return listParticipants;
     }

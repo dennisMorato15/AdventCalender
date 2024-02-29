@@ -27,7 +27,7 @@ public class ParticipantImpl implements IParticipant {
                 continue;
             }
             if(!participant.toString().equals("Back")){
-                if (listParticipants.contains(participant.toString())) {
+                if (validation.validationExitParticipant(listParticipants , participant.toString())) {
                     System.out.println("The person with the name " + participant + " is already on the list :()");
                     System.out.println("Try another name -> ");
                 } else {
@@ -35,40 +35,34 @@ public class ParticipantImpl implements IParticipant {
                     System.out.println("Participant " + participant + " successfully entered ☺");
                     System.out.println("Next Participant -> ");
                 }
-            }else {
-                System.out.println("lola");
             }
-
             ParticipantList.saveList(listParticipants, nameFile);
         }while (validation.responseToContinue(participant.toString()));
     }
-
     @Override
     public void removeParticipants(){
         System.out.println("Enter the name to remove from the game: ");
         System.err.println("Remember that to exit the program you must enter the word 'Back'");
 
        do {
+           participant = new StringBuilder(validation.transformLetter(namePlayer.nextLine().trim()));
            if (validation.validateName(participant.toString())) {
                System.out.println("The person's name must not contain special characters or numbers");
                System.out.println("Entered a valid name -> ");
                continue;
            }
-           participant = new StringBuilder(validation.transformLetter(namePlayer.nextLine().trim()));
            listParticipants = ParticipantList.loadParticipants(nameFile);
 
-           if (!participant.toString().equals("Back")){
-               if (!listParticipants.contains(participant.toString())){
+           if (!participant.toString().equals("Back")) {
+               if (!validation.validationExitParticipant(listParticipants , participant.toString())) {
                    System.out.println("The person with the name " + participant + " does not exist in the list");
                    System.out.println("Try again -> ");
-               }else {
+               } else {
                    listParticipants.remove(participant.toString());
-                   System.out.println("oh! you have removed the participant " + participant + "from the game :(" );
+                   System.out.println("oh! you have removed the participant " + participant + " from the game :(");
+                   System.out.println("Next participant to eliminate-> ");
                }
-           }else {
-               System.out.println("hola");
            }
-
            ParticipantList.saveList(listParticipants , nameFile);
        }while (validation.responseToContinue(participant.toString()));
 

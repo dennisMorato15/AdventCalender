@@ -2,6 +2,8 @@ package exceptions;
 
 import view.ViewParticipants;
 
+import java.util.ArrayList;
+
 public class Validation {
     public boolean responseToContinue(String response){
             return !response.equals("Back");
@@ -13,5 +15,9 @@ public class Validation {
     public boolean validateName(String name){
         String validate  = "^[a-zA-Z\\s]+$";
         return !name.matches(validate);
+    }
+
+    public boolean validationExitParticipant(ArrayList<String> participants , String name){
+        return participants.contains(name);
     }
 }
