@@ -16,17 +16,18 @@ public class ParticipantImpl implements IParticipant {
     @Override
     public void add(){
         System.out.println("Enter the name to add to the game: ");
-        System.err.println("Remember that to exit the program you must enter the word 'Back'");
+        System.err.println("Remember that to return to the menu it is with the number '0'");
 
         do {
             participant = new StringBuilder(validation.transformLetter(namePlayer.nextLine().trim()));
             listParticipants = ParticipantList.loadParticipants(nameFile);
-            if (validation.validateName(participant.toString())){
-                System.out.println("The person's name must not contain special characters or numbers");
-                System.out.println("Entered a valid name -> ");
-                continue;
-            }
-            if(!participant.toString().equals("Back")){
+            if(!participant.toString().equals("0")){
+                if (validation.validateName(participant.toString())){
+                    System.out.println("The person's name must not contain special characters or numbers");
+                    System.out.println("Entered a valid name -> ");
+                    continue;
+                }
+
                 if (validation.validationExitParticipant(listParticipants , participant.toString())) {
                     System.out.println("The person with the name " + participant + " is already on the list :()");
                     System.out.println("Try another name -> ");
@@ -42,18 +43,19 @@ public class ParticipantImpl implements IParticipant {
     @Override
     public void remove(){
         System.out.println("Enter the name to remove from the game: ");
-        System.err.println("Remember that to exit the program you must enter the word 'Back'");
+        System.err.println("Remember that to return to the menu it is with the number '0'");
 
        do {
            participant = new StringBuilder(validation.transformLetter(namePlayer.nextLine().trim()));
-           if (validation.validateName(participant.toString())) {
-               System.out.println("The person's name must not contain special characters or numbers");
-               System.out.println("Entered a valid name -> ");
-               continue;
-           }
-           listParticipants = ParticipantList.loadParticipants(nameFile);
-
            if (!participant.toString().equals("Back")) {
+               if (validation.validateName(participant.toString())) {
+                   System.out.println("The person's name must not contain special characters or numbers");
+                   System.out.println("Entered a valid name -> ");
+                   continue;
+               }
+               listParticipants = ParticipantList.loadParticipants(nameFile);
+
+
                if (!validation.validationExitParticipant(listParticipants , participant.toString())) {
                    System.out.println("The person with the name " + participant + " does not exist in the list");
                    System.out.println("Try again -> ");

@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class Validation {
     public boolean responseToContinue(String response){
+<<<<<<< HEAD
             return !response.equals("1");
+=======
+            return !response.equals("0");
+>>>>>>> main
     }
     public String transformLetter(String word) {
         word = word.substring(0, 1).toUpperCase().concat(word.substring(1).toLowerCase());
