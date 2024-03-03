@@ -23,19 +23,19 @@ public class ViewParticipants {
                 play = new StringBuilder(validation.transformLetter(scannerPlay.nextLine().trim()));
 
                 switch (play.toString()) {
-                    case "Add" -> {
+                    case "1" -> {
                         participant.addParticipants();
                     }
-                    case "Delete" -> {
+                    case "2" -> {
                         participant.removeParticipants();
                     }
-                    case "List" -> {
+                    case "3" -> {
                         participant.listParticipants();
                     }
-                    case "Play" -> {
+                    case "4" -> {
                         participant.toPlay();
                     }
-                    case "Exit" -> participant.exitProgram();
+                    case "5" -> participant.exitProgram();
                     default -> {
                         System.out.println("The data entered is not valid :( ");
                     }
