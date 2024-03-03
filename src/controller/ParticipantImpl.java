@@ -78,7 +78,7 @@ public class ParticipantImpl implements IParticipant {
     }
 
     @Override
-    public void toPlay(){
+    public void play(){
         listParticipants = ParticipantList.loadParticipants(nameFile);
         Random random = new Random();
         int randomNumber = random.nextInt(listParticipants.size());
